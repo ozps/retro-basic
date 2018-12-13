@@ -1,0 +1,11 @@
+pgm := line pgm | EOF
+line := line_num stmt
+stmt := asgmnt | if | print | goto | stop
+asgmnt := id = exp
+exp := term + term | term - term | term
+term := id | const
+if := IF cond line_num
+cond := term < term | term = term
+print := PRINT id
+goto := GOTO line_num
+stop := STOP
